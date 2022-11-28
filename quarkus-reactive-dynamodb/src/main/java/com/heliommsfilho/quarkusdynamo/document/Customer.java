@@ -66,7 +66,7 @@ public class Customer {
         private String brand;
         private String model;
         private Integer year;
-        private Integer color;
+        private String color;
         private Instant createTimestamp;
         private Instant updateTimestamp;
 

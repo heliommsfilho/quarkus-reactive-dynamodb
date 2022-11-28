@@ -1,4 +1,4 @@
-package com.heliommsfilho.quarkusdynamo.model;
+package com.heliommsfilho.quarkusdynamo.model.tableinfo;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @Jacksonized
 @ToString
-public class TableInfo {
+public class TableInfoOutput {
 
     private String name;
     private List<Attribute> keys;

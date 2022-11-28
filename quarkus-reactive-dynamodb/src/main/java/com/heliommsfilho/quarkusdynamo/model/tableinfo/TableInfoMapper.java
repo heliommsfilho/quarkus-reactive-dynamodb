@@ -1,7 +1,6 @@
-package com.heliommsfilho.quarkusdynamo.model.mapper;
+package com.heliommsfilho.quarkusdynamo.model.tableinfo;
 
-import com.heliommsfilho.quarkusdynamo.model.TableInfo;
-import com.heliommsfilho.quarkusdynamo.model.TableInfo.Attribute;
+import com.heliommsfilho.quarkusdynamo.model.tableinfo.TableInfoOutput.Attribute;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
@@ -12,7 +11,7 @@ import software.amazon.awssdk.services.dynamodb.model.TableDescription;
 import java.util.List;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.CDI)
-public interface TableMapper {
+public interface TableInfoMapper {
 
     @Mapping(target = "name", expression = "java(tableDescription.tableName())")
     @Mapping(target = "keys", expression = "java(toKeys(tableDescription.keySchema()))")
@@ -24,7 +23,7 @@ public interface TableMapper {
     @Mapping(target = "itemCount", expression = "java(tableDescription.itemCount())")
     @Mapping(target = "arn", expression = "java(tableDescription.tableArn())")
     @Mapping(target = "creationDate", expression = "java(tableDescription.creationDateTime())")
-    TableInfo toTableInfo(final TableDescription tableDescription);
+    TableInfoOutput toTableInfo(final TableDescription tableDescription);
 
     @Mapping(target = "name", expression = "java(attribute.attributeName())")
     @Mapping(target = "type", expression = "java(attribute.attributeTypeAsString())")
